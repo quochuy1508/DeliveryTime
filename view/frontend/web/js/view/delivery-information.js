@@ -78,19 +78,19 @@ define([
                             maxDate: deliveryDayMax,
                             minDate: deliveryDayMin,
                             showOn: 'both',
-                            buttonText: '',
-                            beforeShowDay: function (date) {
-                                var currentDay = date.getDay();
-                                var currentDate = date.getDate();
-                                var currentMonth = date.getMonth() + 1;
-                                var currentYear = date.getFullYear();
-                                var dateToCheck = ('0' + currentDate).slice(-2) + '/' + currentMonth + '/' + currentYear;
-
-                                var isAvailableDay = daysOff.indexOf(currentDay) === -1;
-                                var isAvailableDate = $.inArray(dateToCheck, dateOff) === -1;
-
-                                return [isAvailableDay && isAvailableDate];
-                            }
+                            buttonText: 'Choose Time',
+                            // beforeShowDay: function (date) {
+                            //     var currentDay = date.getDay();
+                            //     var currentDate = date.getDate();
+                            //     var currentMonth = date.getMonth() + 1;
+                            //     var currentYear = date.getFullYear();
+                            //     var dateToCheck = ('0' + currentDate).slice(-2) + '/' + currentMonth + '/' + currentYear;
+                            //
+                            //     var isAvailableDay = daysOff.indexOf(currentDay) === -1;
+                            //     var isAvailableDate = $.inArray(dateToCheck, dateOff) === -1;
+                            //
+                            //     return [isAvailableDay && isAvailableDate];
+                            // }
                         };
                         $(element).datepicker(options);
                     }
@@ -111,9 +111,15 @@ define([
                 return this;
             },
 
-            removeDeliveryDate: function () {
-                if (mpDtData.getData(cacheKeyDeliveryDate) && mpDtData.getData(cacheKeyDeliveryDate) != null) {
-                    this.deliveryDate('');
+            removeDeliveryInformation: function () {
+                if (
+                    (mpDtData.getData(cacheKeyDeliveryDate) && mpDtData.getData(cacheKeyDeliveryDate) != null) ||
+                    (mpDtData.getData(cacheKeyDeliveryTime) && mpDtData.getData(cacheKeyDeliveryTime) != null) ||
+                    (mpDtData.getData(cacheKeyDeliveryComment) && mpDtData.getData(cacheKeyDeliveryComment) != null)
+                ) {
+                    this.deliveryDate(null);
+                    this.deliveryTime(null);
+                    this.deliveryComment(null);
                 }
             }
         });

@@ -17,6 +17,10 @@
             <resource>Magenest_DeliveryTime::config</resource>
             <group id="date_delivery" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Date Delivery Config</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
                 <field id="day_of_weeks_not_ship" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Day of Weeks Don't Ship of Store</label>
                     <source_model>Magento\Config\Model\Config\Source\Locale\Weekdays</source_model>
@@ -50,6 +54,10 @@
                     <depends>
                         <field id="enabled_disabled_same_day_delivery_after">1</field>
                     </depends>
+                </field>
+                <field id="disabled_same_day_delivery_before" translate="label" type="select" sortOrder="1" showInDefault="1" canRestore="1">
+                    <label>Year-To-Date Starts</label>
+                    <frontend_model>Magenest\DeliveryTime\Block\Adminhtml\Config\Form\Field\YtdStart</frontend_model>
                 </field>
                 <field id="delivery_display_on" translate="label comment" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Display On</label>

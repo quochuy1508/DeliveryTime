@@ -28,6 +28,7 @@ use Magento\Sales\Api\PaymentFailuresInterface;
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     public const XML_PATH_ENABLE_COMMENT_FIELD = 'delivery_time/date_delivery/enable_comments_field';
+    public const XML_PATH_ENABLE_MODULE_FIELD = 'delivery_time/date_delivery/enabled';
     public const XML_PATH_DATE_FORMAT_FIELD = 'delivery_time/date_delivery/date_format';
     public const XML_PATH_DAY_MIN_FIELD = 'delivery_time/date_delivery/lead_time';
     public const XML_PATH_DAY_MAX_FIELD = 'delivery_time/date_delivery/maximal_delivery_interval';
@@ -109,6 +110,19 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         return $this->scopeConfig->getValue(
             self::XML_PATH_ENABLE_COMMENT_FIELD,
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * Return, whether non-required state should be shown
+     *
+     * @return int
+     */
+    public function isEnabled()
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_ENABLE_MODULE_FIELD,
             ScopeInterface::SCOPE_STORE
         );
     }

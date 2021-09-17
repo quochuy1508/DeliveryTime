@@ -14,8 +14,4 @@
             </argument>
         </arguments>
     </type>
-
-    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
-        <plugin name="addDeliveryInfomationToShipToBlock" type="Magenest\DeliveryTime\Model\Plugin\AddDeliveryInfomationToShipToBlock"/>
-    </type>
 </config>

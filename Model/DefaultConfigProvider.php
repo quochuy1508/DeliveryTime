@@ -49,7 +49,7 @@ class DefaultConfigProvider implements ConfigProviderInterface
     private function getMpDtConfig()
     {
         return [
-//            'isEnabledDeliveryTime'      => $this->mpDtHelper->isEnabledDeliveryTime(),
+            'isEnabled'      => $this->mpDtHelper->isEnabled(),
             'isEnabledDeliveryComment'   => $this->mpDtHelper->isEnabledDeliveryComment(),
             'deliveryDateFormat'         => $this->mpDtHelper->getDateFormat(),
             'deliveryDayMax'            => $this->mpDtHelper->getDayMax(),

@@ -1,3 +1,4 @@
+<!-- ko if: window.checkoutConfig.mpDtConfig.isEnabled -->
 <div class="delivery-information">
     <div class="step-title" data-role="title" data-bind="i18n: 'Delivery Date'">Delivery Date</div>
 
@@ -8,9 +9,6 @@
         <div class="control">
             <input type="text" readonly="readonly" data-bind="mpdatepicker: true, value: deliveryDate"
                    name="delivery-date" id="mp-delivery-date"/>
-            <div class="remove-delivery-date" data-bind="click: removeDeliveryDate, visible: isVisible()">
-                <i class="fa fa-remove"></i>
-            </div>
         </div>
     </div>
 
@@ -41,4 +39,8 @@
         </div>
     </div>
     <!-- /ko -->
+    <button class="remove-delivery-date" data-bind="click: removeDeliveryInformation">
+        Reset
+    </button>
 </div>
+<!-- /ko -->

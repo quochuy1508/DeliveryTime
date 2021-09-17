@@ -31,5 +31,9 @@ class QuoteSubmitBefore implements ObserverInterface
         if ($deliveryComment = $quote->getData('delivery_comment')) {
             $order->setData('delivery_comment', $deliveryComment);
         }
+
+        if ($deliveryTimeFee = $quote->getData('delivery_time_fee')) {
+            $order->setData('delivery_time_fee', $deliveryTimeFee);
+        }
     }
 }
